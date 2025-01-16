@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- HTML comments use these delimiters -->
+<html>
+
+<head>
+    <title>BookList By RaffyTaffy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #titleNav {
+            /* titleNav is fixed, always at the top */
+
+            /* position fixed removes the element from the normal flow, 
+   placing it w.r.t. the browser's edge as specified by top/bottom, left/right */
+            position: fixed;
+            top: 0rem;
+            left: 0rem;
+            z-index: 1;
+            /* To make sure titleNav is on top of content, 
+                   give it a higher z-index than content 
+                   (which has the default value, zero). */
+            width: 100%;
+            /* fixed elements are not 100% by default like other divs would be */
+
+            font-family: serif;
+            letter-spacing: 0.1rem;
+            /* spaces out letters a bit */
+            color: white;
+            /* font color */
+            background-color: #467F85;
+            padding: 0.5rem;
+        }
+
+        #title {
+            font-size: 3rem;
+        }
+
+        #nav {
+            text-align: right;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        #nav a {
+            /* this selector applies to links within #nav */
+            text-decoration: none;
+            /* Do not want links in "nav" to be underlined */
+            color: #C8C8C8;
+            /* light gray: to specify color for links, you have to style the "a" tag */
+        }
+
+        #footer {
+            /* footer fixed, always at the bottom left */
+            position: fixed;
+            bottom: 0rem;
+            left: 0rem;
+            z-index: 1;
+            /* make sure footer is on top of content which would have default z-index value of 0 */
+
+            background-color: #467F85;
+            color: white;
+            width: 100%;
+            /* fixed elements are not 100% by default like other divs would be */
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        #content {
+            /* Add padding top to prevent titleNav from covering up top of content. 
+                           add padding bottom to prevent bottom content from getting hidden under footer. */
+            padding: 1rem;
+            padding-top: 6rem;
+            /* prevent the top of the content from getting hidden under the fixed titleNav */
+            padding-bottom: 2rem;
+            /* prevent the the bottom of the content from getting hidden under the fixed footer */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="titleNav">
+
+        <div id="title">
+            BookList
+        </div>
+
+        <div id="nav">
+            <a href="myIndex.html">Home</a>
+            &nbsp; <!-- non breaking space used to give more space -->
+            | <!-- vertical bar used as separator -->
+            &nbsp; <!-- non breaking space used to give more space -->
+            <a href="blog.html">Blog</a>
+            &nbsp; <!-- non breaking space used to give more space -->
+            &nbsp; <!-- non breaking space used to give more space -->
+        </div>
+
+    </div>
+
+    <div id="content">
+        <p>
+            A paragraph that describes your proposed website functionality and entices viewers to visit the site.
+            Don't explain what you plan to say to users. Provide the actual text for the users.
+        </p>
+
+        <h2>
+            Blog
+        </h2>
+        <h3>
+            Server Page
+        </h3>
+        <h3>
+            Proposed Database Table
+        </h3>
+        <p>
+
+        </p>
+        <h3>
+            My Database Experience
+        </h3>
+        <p>
+            I don't have much database experience. Except there was two instance.
+            The first instance is when I was takng this coding bootcamp where it
+            involves full-stack development. In this case we also used MySQL workbench.
+            The secoind instanceo is my current job, where my responsibility is as a
+            software developer, but it does not include much of databse experience.
+            Although there was moments I had to use Golden, which is a query tool for
+            Oracle databases. Which involves a little bit of SQL but nothing more than
+            that.
+        </p>
+        <h3>
+            My Web Development Experience
+        </h3>
+        <p>
+            I have a lot of web development experience. I first used React framework 
+            as a start of my experience, I first did this on my own and then I worked
+            on a task on a start up company (it failed). I was then lucky to find a job
+            at Lockheed Martin as an Engineering Aide, which is the same resposibilty
+            as a software developer but simply because I don't have a bachelor I can't
+            be promoted without the proof of a piece of paper, but this at ok. I still
+            work there since like 2.5 years now.
+        </p>
+        <h3>
+            HW 1 Home Page
+        </h3>
+
+        <p style="text-align:center;">
+            <!--TODO: Add picture-->
+            <img src="" style="width:40%; border-radius:0.5rem;">
+        </p>
+
+    </div> <!-- content. [[Keep track of nesting]] -->
+    <div id="footer">
+        Rafael Rodriguez
+    </div>
+</body>
+
+</html>
