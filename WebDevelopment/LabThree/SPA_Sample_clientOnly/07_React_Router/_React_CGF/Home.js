@@ -1,0 +1,13 @@
+function Home() {
+    return (
+        <div className="home">
+            <h4>
+                Home is Where the Heart Is
+            </h4>
+
+            <p>
+                Lame, I know. Couldn't think of anything else to use as Home Content for this example.
+            </p>
+        </div>
+    );
+}

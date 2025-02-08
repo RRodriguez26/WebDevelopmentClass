@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>onclick Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="sprite.css" rel="stylesheet" type="text/css" />
+
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #888888;
+            }
+
+            #bg {
+                position: relative;
+                z-index: 1;
+                background-image: url(pics/jungleBg.jpg);
+                background-repeat: no-repeat;
+                height: 580px;
+                width:100%;
+                /*width: 1230px;*/
+            }
+
+            .sprite {
+                height: 50px;
+                width: 50px;
+                background-image: url(pics/jungleSprites.png);
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="bg">
+        </div>
+
+        <script src="MakeSprite.js"></script>
+        <script>
+            "use strict";
+
+            var background = document.getElementById("bg");
+
+            var zebraPoseList = [
+                {bgx: "-4px", bgy: "-12px"},
+                {bgx: "-54px", bgy: "-12px"},
+                {bgx: "-104px", bgy: "-12px"},
+                {bgx: "-154px", bgy: "-12px"},
+                {bgx: "-204px", bgy: "-12px"},
+                {bgx: "-262px", bgy: "-12px"}
+            ];
+            var zebra = MakeSprite({
+                poseList: zebraPoseList,
+                top: 385, // initial top position of sprite
+                left: 1180, // initial left position of sprite
+                millisecs: 100, // how often the sprite moves (in milliseconds)
+                dx: -16, // # pixels the sprite moves left/right (- is left, + is right) when it moves
+                xrand: 2, // #pixels of randomness in each left/right movement 
+                dy: 1, // #pixels the sprite moves up/down (- is up, + is down) when it moves
+                yrand: 4, // #pixels of randomness in each up/down movement
+                stopCondition: "left<-70" // JS code (will be evaluated) that says when animation stops 
+                        // e.g., left (or top) > or < some value
+            });
+            background.appendChild(zebra);
+
+            var gazellePoseList = [
+                {bgx: "-1px", bgy: "-75px"},
+                {bgx: "-49px", bgy: "-75px"},
+                {bgx: "-100px", bgy: "-75px"},
+                {bgx: "-149px", bgy: "-75px"},
+                {bgx: "-192px", bgy: "-75px"},
+                {bgx: "-236px", by: "-75px"}
+            ];
+            var gazelle = MakeSprite({
+                poseList: gazellePoseList,
+                top: 450, // initial top position of sprite
+                left: 1480, // initial left position of sprite
+                millisecs: 110, // how often the sprite moves (in milliseconds)
+                dx: -24, // # pixels the sprite moves left/right (- is left, + is right) when it moves
+                xrand: 4, // #pixels of randomness in each left/right movement 
+                dy: 0, // #pixels the sprite moves up/down (- is up, + is down) when it moves
+                yrand: 4, // #pixels of randomness in each up/down movement
+                stopCondition: "left<-70" // JS code (will be evaluated) that says when animation stops 
+                        // e.g., left (or top) > or < some value
+            });
+            background.appendChild(gazelle);
+
+            var cheetahPoseList = [
+                {bgx: "-2px", bgy: "-132px"},
+                {bgx: "-52px", bgy: "-132px"},
+                {bgx: "-100px", bgy: "-132px"},
+                {bgx: "-145px", bgy: "-132px"},
+                {bgx: "-193px", bgy: "-132px"},
+                {bgx: "-236px", by: "-132px"}
+            ];
+            var cheetah = MakeSprite({
+                poseList: cheetahPoseList,
+                top: 500, // initial top position of sprite
+                left: 1480, // initial left position of sprite
+                millisecs: 110, // how often the sprite moves (in milliseconds)
+                dx: -40, // # pixels the sprite moves left/right (- is left, + is right) when it moves
+                xrand: 4, // #pixels of randomness in each left/right movement 
+                dy: 0, // #pixels the sprite moves up/down (- is up, + is down) when it moves
+                yrand: 4, // #pixels of randomness in each up/down movement
+                stopCondition: "left<-70" // JS code (will be evaluated) that says when animation stops 
+                        // e.g., left (or top) > or < some value
+            });
+            background.appendChild(cheetah);
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Mouse Over Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="ball.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            text-align: center;
+        }
+        .redStyle {
+            background-color: red;
+            width:5rem;
+        }  
+        .blueStyle {
+            background-color: blue;
+            width:5rem;
+        }  
+        .smallStyle {
+            background-color: green;
+            font-size:1rem;
+            width:5rem;
+            height:5rem;
+        }
+        .bigStyle {
+            background-color: green;
+            font-size:3rem;
+            width:15rem;
+            height:15rem;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>More Event Handling</h2>
+    <h4>Style of Ball Component Changes On MouseOver</h4>
+
+    <h5>Open up Chrome's Console to check for any JS errors. </h5>
+
+    <div id="container">
+    </div>
+
+    <script src="MakeBall.js"></script>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var target = document.getElementById("container");
+
+        var rbBall = MakeBall({
+            ballTitle: "Red/Blue Ball",
+            initStyle: "redStyle",
+            altStyle: "blueStyle"
+        });
+        target.appendChild(rbBall);
+
+        var growingBall = MakeBall({
+            ballTitle: "Growing Ball",
+            initStyle: "smallStyle",
+            altStyle: "bigStyle"
+        });
+        target.appendChild(growingBall);
+
+        var defaultball = MakeBall({});
+        target.appendChild(defaultball);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Components With Event Handling (JS Templating)</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors. </h4>
+
+    <div id="container">
+    </div>
+
+    <script src="MakeCar_events_templating.js"></script>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var target = document.getElementById("container");
+
+        var carComp1 = MakeCar_events_templating({
+            theCondition: "great",
+            thePrice: 5000
+        });
+        target.appendChild(carComp1);
+
+        var carComp2 = MakeCar_events_templating({
+            theCondition: "fair",
+            thePrice: 15000
+        });
+        target.appendChild(carComp2);
+
+        var emptyCarComp = MakeCar_events_templating({ });
+        target.appendChild(emptyCarComp);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.employee {
+    align-items: center;
+    justify-content: center;
+    background-color: darkgray;
+    text-align: center;
+}
+
+.employee button {
+    background-color: blueviolet
+}

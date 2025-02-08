@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Component</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Creating Simple JS Components (Parameter Object)</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors.</h4>
+
+    <p>
+        This code demonstrates various ways of passing parameters to JavaScript functions:
+    </p>
+    <ul>
+        <li>
+            parameter list: like java except you don't have to specify the type of the parameter
+            in the function header.
+        </li>
+        <li>
+            <strong>parameter object</strong>: the consumer (calling code) does not have to specify all properties, the
+            provider code (function) can specify default values for any properties not specified.
+        </li>
+        <li>
+            destructured parameter object: the consumer code is the same as parameter object (above),
+            but the provider code (function) uses the property names as variables (does not have to
+            extract parameter object properties into variables).
+        </li>
+        <li>
+            destructured parameter object with default values: the consumer code is the same as
+            parameter object (above) but the provider code (function) nicely specifies default
+            values right in the function header (for any parameter object properties that the consumer did not specify).
+        </li>
+    </ul>
+
+    <div id="container"></div>
+
+    <script src="MakeCar_paramObj.js"></script>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var targetDiv = document.getElementById("container");
+
+
+        // EXAMPLE TWO: PARAMETER OBJECT
+        // -----------------------------
+        var myParamObj = { condition: "fair", price: 2500 };
+        var myCarObj = MakeCar_paramObj(myParamObj);
+        targetDiv.appendChild(myCarObj);
+
+        var yourCarObj = MakeCar_paramObj({ condition: "excellent", price: 27000 });
+        targetDiv.appendChild(yourCarObj);
+
+        // you can supply 1, 2 or 0 of the properties:condition, price
+        // because the fn that's called supplies default values.
+        var yourCarObj = MakeCar_paramObj({});
+
+        targetDiv.appendChild(yourCarObj);
+
+
+    </script>
+</body>
+
+</html>

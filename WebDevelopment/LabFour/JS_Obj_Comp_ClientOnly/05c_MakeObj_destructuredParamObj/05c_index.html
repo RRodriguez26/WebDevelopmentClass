@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Component</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Creating Simple JS Components (Destructured Parameter Object)</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors.</h4>
+
+    <p>
+        This code demonstrates various ways of passing parameters to JavaScript functions:
+    </p>
+    <ul>
+        <li>
+            parameter list: like java except you don't have to specify the type of the parameter
+            in the function header.
+        </li>
+        <li>
+            parameter object: the consumer (calling code) does not have to specify all properties, the
+            provider code (function) can specify default values for any properties not specified.
+        </li>
+        <li>
+            <strong>destructured parameter object</strong>: the consumer code is the same as parameter object (above),
+            but the provider code (function) uses the property names as variables (does not have to
+            extract parameter object properties into variables).
+        </li>
+        <li>
+            destructured parameter object with default values: the consumer code is the same as
+            parameter object (above) but the provider code (function) nicely specifies default
+            values right in the function header (for any parameter object properties that the consumer did not specify).
+        </li>
+    </ul>
+
+    <div id="container"></div>
+
+    <script src="MakeCar_destructuredParamObj.js"></script>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var targetDiv = document.getElementById("container");
+
+
+        // EXAMPLE: OBJECT DESTRUCTURING
+        // -----------------------------------
+        // "regular" object destructuring (outside of being a parameter)
+        // condition and price are both declared as plain variables and they take 
+        // on the values of the property of the object (on the R.H.S.) that has 
+        // the same name as the variables, if such properties exist. 
+        var myObj = { condition: "fair", price: 2500 };
+        var { condition, price } = myObj;
+
+        // which is like as if you did this:
+        // var condition = myObj.condition; 
+        // var price = myObj.price; 
+
+        console.log("regular object destructuring: price is " + price +
+            ", condition is " + condition);
+        // price is 2500, condition is fair
+
+        // in this example, the object on the right is missing property condition2
+        // but that's no problem, condition2 is declared and has value "undefined"
+        var { condition2, price2 } = { price2: 500 };
+        console.log("regular object destructuring (missing condition2 property): " +
+            "price2 is " + price2 +
+            ", condition2 is " + condition2);
+        // price2 is 500, condition2 is undefined (no exception thrown)
+
+
+        // EXAMPLE FOUR: PARAMETER OBJECT DESTRUCTURING (check Make Fn)
+        // ------------------------------------------------------------
+        var car3 = MakeCar_destructuredParamObj({ condition: "awesome", price: 12500 });
+        targetDiv.appendChild(car3);
+
+        // this code breaks because the consumer did not provide properties condition and price
+        var car4 = MakeCar_destructuredParamObj({ });
+        targetDiv.appendChild(car4);
+
+    </script>
+</body>
+
+</html>

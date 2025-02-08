@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>onclick Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="sprite.css" rel="stylesheet" type="text/css" />
+
+        <style>
+            body {
+                margin: 0;
+                padding: 1rem;
+                background-color: #CCCCCC;
+            }
+            #mySprite {
+                height: 50px;
+                width: 48px;
+                background-image: url(pics/jungleSprites.png);
+                border: thick solid white;
+            }
+            #showPoseNum {
+                background-color:yellow;
+                padding:0.25rem;
+            }
+            #spriteset {
+                border:2px solid black;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <button onclick="nextPose()">Next Pose</button>
+        <button onclick="prevPose()">Previous Pose</button>
+        <span id="showPoseNum"></span>
+        <br />
+        <br />
+        <div id="mySprite"></div>
+        <br />
+        <br />
+        <img id="spriteset" src="pics/jungleSprites.png"/>
+
+        <p>
+            Note: when you are trying to figure out the background-position-x
+            and background-position-y values to isolate a pose from a
+            sprite set, think about the border (e.g. the
+            white border above) as being a fixed window and you are
+            selecting background-position-x and background-position-y
+            values that move the spriteSet image behind the fixed window.
+            So,
+        </p>
+        <ul>
+            <li>
+                provide a negative (or lower) background-position-x
+                value to see that part of the bg image that's more
+                to the right.
+            </li>
+            <li>
+                provide a positive (or higher) background-position-y
+                value to see that part of the bg image that's more to
+                the left.
+            </li>
+            <li>
+                provide a negative (or lower) background-position-y
+                value to see that part of the bg image that's farther
+                down.
+            </li>
+            <li>
+                provide a positive (or higher) background-position-y
+                value to see that part of the bg image that's higher
+                up.
+            </li>
+        </ul>
+        <p>
+            Basically you set the numbers backwards from 
+            how you'd think to set them !!!
+        </p>
+
+        <script src="MakeSprite.js"></script>
+        <script>
+            "use strict";
+
+            var sprite = document.getElementById("mySprite");
+            sprite.style.top = "50px";
+            sprite.style.left = "50px";
+
+            function nextPose() {
+                // advance to next pose of sprite set image (set background-position-x and y from the posList array)
+                poseIdx++;
+                if (poseIdx >= myPoseList.length) {
+                    poseIdx = 0;
+                }
+                showPose();
+            }
+            ;
+
+            function prevPose() {
+                // advance to next pose of sprite set image (set background-position-x and y from the posList array)
+                poseIdx--;
+                if (poseIdx < 0) {
+                    poseIdx = myPoseList.length - 1;
+                }
+                showPose();
+            }
+            ;
+
+            function showPose() {
+                document.getElementById("showPoseNum").innerHTML = poseIdx;
+                sprite.style.backgroundPositionX = myPoseList[poseIdx].bgx;
+                sprite.style.backgroundPositionY = myPoseList[poseIdx].bgy;
+            }
+
+            var myPoseList = [
+                {bgx: "-2px", bgy: "-132px"},
+                {bgx: "-52px", bgy: "-132px"},
+                {bgx: "-100px", bgy: "-132px"},
+                {bgx: "-145px", bgy: "-132px"},
+                {bgx: "-193px", bgy: "-132px"},
+                {bgx: "-236px", by: "-132px"}
+            ];
+
+            var poseIdx = 0;
+            showPose(); // set first pose
+
+
+        </script>
+    </body>
+
+</html>

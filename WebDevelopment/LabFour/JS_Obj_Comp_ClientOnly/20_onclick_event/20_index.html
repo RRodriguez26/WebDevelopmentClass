@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>onclick Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="counter.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            text-align:center;
+        }
+
+        .blueCarStyle {
+            background-color:blue;
+            width:30rem;
+            color:white
+        }
+
+        .redCarStyle {
+            background-color:red;
+            color:black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>More Event Handling</h2>
+    <h4>Counter Component Increments On Click</h4>
+
+    <h5>Open up Chrome's Console to check for any JS errors. </h5>
+
+    <div id="container">
+    </div>
+
+    <script src="MakeCounter.js"></script>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var target = document.getElementById("container");
+
+        var blueCarCounter = MakeCounter({
+            counterTitle: "Blue Car Counter",
+            counterStyle: "blueCarStyle",
+            counterInitVal: 10
+        });
+        target.appendChild(blueCarCounter);
+
+        var redCarCounter = MakeCounter({
+            counterTitle: "Red Car Counter",
+            counterStyle: "redCarStyle",
+            counterInitVal: 25
+        });
+        target.appendChild(redCarCounter);
+
+        var defaultCounter = MakeCounter({ });
+        target.appendChild(defaultCounter);
+
+    </script>
+</body>
+
+</html>

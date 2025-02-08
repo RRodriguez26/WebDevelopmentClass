@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #DDEEFF;
+            /* lightblue */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Building a Select Tag from Object Array - JS Templating</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors. </h4>
+
+    <div id='carContainer'>
+    </div>
+
+    <script src="MakeCar_select_dynam.js"></script>
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        // function MakeCar(name, condition, price, imgURL) {
+        var carDiv1 = MakeCar_select_dynam({
+            carName: "White Audi",
+            year: "2020",
+            conditionList: [
+                { "display": "Excellent", "val": "5" },
+                { "display": "Good", "val": "4" },
+                { "display": "Fair", "val": "3" },
+                { "display": "Poor", "val": "2" },
+                { "display": "Unknown", "val": "1" }
+            ],
+            condition: "33"
+        });
+        document.getElementById("carContainer").appendChild(carDiv1);
+
+        var carDiv2 = MakeCar_select_dynam({
+            carName: "Pixar",
+            year: "2021",
+            conditionList: [
+                { "display": "Fantastic", "val": "10" },
+                { "display": "OK", "val": "5" },
+                { "display": "Bad", "val": "1" }
+            ],
+            condition: "5"
+        });
+        document.getElementById("carContainer").appendChild(carDiv2);
+
+        var carDiv3 = MakeCar_select_dynam({});
+        document.getElementById("carContainer").appendChild(carDiv3);
+
+    </script>
+</body>
+
+</html>

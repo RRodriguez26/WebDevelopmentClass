@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- HTML comments must be like this... -->
+<html>
+
+<head>
+    <title>Title Nav Using Flexbox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icons/smiley.png" />
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/NavRouter.css" rel="stylesheet" type="text/css" />
+    <link href="style/blog.css" rel="stylesheet" type="text/css" />
+    <link href="style/obj.css" rel="stylesheet" type="text/css" />
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <div id="titleNav">
+        <div id="title">
+            Website Title
+        </div>
+        <div id="nav">
+
+        </div>
+    </div>
+    <div id="content">
+
+        <!-- HTML comment: 
+                The content div is empty. It will get content "injected into it"
+                by the NavRouter component.
+            -->
+
+    </div> <!-- end of content area -->
+    <div id="footer">
+        Your Footer Goes Here
+    </div>
+
+
+    <!-- Put reusable functions first (in case other functions need to reference them). 
+             Suggest you keep these in the same order as you see them in the project pane -->
+    <script src="_JS_reusable/MakeNavRouter.js"></script>
+    <script src="_JS_reusable/MakeObj.js"></script>
+
+    <!-- Next put the Content Generating Functions (CGFs). CGFs are the only functions that will 
+        be invoked directly by the NavRouter.  -->
+    <script src="_JS_CGF/blogContent.js"></script>
+    <script src="_JS_CGF/homeContent.js"></script>
+    <script src="_JS_CGF/objContent.js"></script>
+    <script src="_JS_CGF/infoContent.js"></script>
+
+    <script>
+
+        // Home | Account | Search | Tutorial | Blog
+
+        var myNavList = [
+
+            // property linkText is what shows up for the user as linked text in the Nav Bar.
+            // property linkURL is what shows up in the browser's address bar when they click that link. 
+            // property action is the function to be run when the NavRouter sees that link has been clicked. 
+            // -- it's the actual function, not function name, don't use quotes around homeContent). 
+            { linkText: "Home", linkURL: "#/home", action: homeContent },
+            {
+                header: "Account",
+                subMenu: [
+
+                    // These links show up in nav bar but are not functional because 
+                    // they have no linkURL and no action.
+                    { linkText: "Register" },
+                    { linkText: "Log In" },
+                    { linkText: "Log Out" },
+                    { linkText: "Profile" }
+                ]
+            },
+            {
+                header: "Search",
+                subMenu: [
+                    { linkText: "Objects (works-click me!)", linkURL: "#/objects", action: objContent },
+                    { linkText: "Open PDF (works-click me!)", linkURL: "#/DBproposal", action:"docs/DB_proposal.pdf" },
+                    { linkText: "Info (works-click me!)", linkURL: "#/info", action: infoContent}
+                ]
+            },
+
+            // action attribute is a function name - no quotes around blog.
+            { linkText: "Blog", linkURL: "#/blog", action: blogContent }
+        ];
+
+        var myNav = MakeNavRouter({
+            navId: "nav", // the id where the nav bar will be injected (one time at page render)
+            navList: myNavList, // the list of link objects (each object specifies: linkText, linkURL, & action)
+            contentId: "content", // the id where content will be injected with each nav link click
+            startLink: "#/home"   // auto-click the home link initially (else content area would be blank initially) 
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+    <head>
+        <title>Car Component</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="car.css" rel="stylesheet" type="text/css" /> 
+
+        <style>
+            body {
+                font-family:sans-serif;
+                background-color: #DDEEFF; /* lightblue */
+            }
+            #carContainer {
+                display:flex;
+                flex-direction: row;
+            }
+            #carContainer .car {
+                width:50%;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Creating 2 Car Components With Images (JS, no Templating)</h2>
+
+        <h4>Open up Chrome's Console to check for any JS errors. </h4>
+
+        <div id='carContainer'>
+
+        </div>
+
+        <script src="MakeCar_img.js"></script>
+        <script>
+            
+            "use strict"; // prevent browser from globally auto-declaring variables
+
+            // name, condition, price, imgURL
+            var carDiv1 = MakeCar_img({
+                carName: "black Audi", 
+                condition:"great", 
+                price:5000,
+                imgURL:"pics/audi.png"
+            });
+            document.getElementById("carContainer").appendChild(carDiv1);
+
+            var carDiv2 = MakeCar_img({  }); // test the default values
+            document.getElementById("carContainer").appendChild(carDiv2);
+
+        </script>
+    </body>
+</html>

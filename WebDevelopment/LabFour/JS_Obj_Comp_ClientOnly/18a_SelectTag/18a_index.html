@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #DDEEFF;
+            /* lightblue */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Building a Select Tag (with Hard Coded Values) - JS Templating</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors. </h4>
+
+    <div id='carContainer'>
+    </div>
+
+    <script src="MakeCar_select.js"></script>
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        // function MakeCar(name, condition, price, imgURL) {
+        var carDiv1 = MakeCar_select({
+            carName: "White Audi",
+            year: "2020",
+            condition: "3"
+        });
+        document.getElementById("carContainer").appendChild(carDiv1);
+
+        var carDiv2 = MakeCar_select({
+            carName: "Pixar",
+            year: "2021",
+            condition: "29"
+        });    
+        document.getElementById("carContainer").appendChild(carDiv2);
+
+        var carDiv3 = MakeCar_select({ });    // example showing use of default values
+        document.getElementById("carContainer").appendChild(carDiv3);
+
+    </script>
+</body>
+
+</html>

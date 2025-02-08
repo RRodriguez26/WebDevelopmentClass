@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Sample code: Car Object -->
+<html>
+
+<head>
+    <title>Car Components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="car.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #DDEEFF;
+            /* lightblue */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Building a Select Tag using HTML</h2>
+
+    <h4>Open up Chrome's Console to check for any JS errors. </h4>
+
+    Year in School:
+    <select>
+        <option value="4">Senior</option>
+        <option value="3">Junior</option>
+        <option value="2" >Sophomore</option>
+        <option value="1" selected>Freshman</option>
+        <option value="0">Non-Matrictulated</option>
+    </select>
+
+    <br /><br />
+
+    Condition:
+    <select id="selectId" onchange='showValue()'>
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Fair</option>
+        <option value="2">Poor</option>
+        <option value="1">Unknown</option>
+    </select>
+    &nbsp; &nbsp;
+    <span id="msg"></span>
+
+    <script>
+
+        "use strict"; // prevent browser from globally auto-declaring variables
+
+        var selectTag = document.getElementById("selectId");
+        selectTag.value = 4; // pre-select "Poor" with value 2.
+        var msgArea = document.getElementById("msg");
+
+        function showValue() {
+            msgArea.innerHTML =
+                "The value of the option you selected is " +
+                selectTag.value;
+        }
+
+    </script>
+</body>
+
+</html>
