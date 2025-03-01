@@ -1,0 +1,13 @@
+.books {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+}
+
+.book {
+    padding: 3rem;
+}
+
+.book img {
+    filter: drop-shadow(3rem 1rem 1rem #000000);
+}

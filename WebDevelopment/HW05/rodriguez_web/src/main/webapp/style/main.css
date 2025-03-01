@@ -1,0 +1,117 @@
+/* mobile first design -- everything down to the media query is for mobile */
+body { 
+    margin:0;                   /* no white border around browser window */
+    font-family: sans-serif;    /* no tails on the font like Times New Roman */
+
+    background-color: rgba(225,225,225,0.5);
+}
+
+#titleNav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0rem;
+    width: 100%;
+    z-index: 1;
+    left: 0rem;
+    
+    font-family: Arial;
+    letter-spacing: 0.1rem;
+    color: #E9FFF9;
+    background-color: #467599;
+    padding: 0.5rem;
+    white-space: nowrap
+}
+
+#title {
+    font-size: 3rem;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+#nav {
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#nav a {
+    /* this selector applies to links within #nav */
+    text-decoration: none;
+    /* Do not want links in "nav" to be underlined */
+    color: #E9FFF9;
+    /* light gray: to specify color for links, you have to style the "a" tag */
+}
+
+#content {
+    /* Add padding top to prevent titleNav from covering up top of content. 
+                   add padding bottom to prevent bottom content from getting hidden under footer. */
+    padding: 1rem;
+    padding-top: 3rem;
+    /* prevent the top of the content from getting hidden under the fixed titleNav */
+    padding-bottom: 2rem;
+    /* prevent the the bottom of the content from getting hidden under the fixed footer */
+    color: #1d3354;
+    font-size: 1.5rem;
+}
+
+.hero {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+    font-weight: bold;
+    text-align:center;
+}
+
+h4 {
+    text-align:center;
+    margin-top:1rem;
+    margin-bottom: 0.5rem;
+}
+
+#footer {
+    /* footer fixed, always at the bottom left */
+    position: fixed;
+    bottom: 0rem;
+    left: 0rem;
+    z-index: 1;
+    /* make sure footer is on top of content which would have default z-index value of 0 */
+
+    background-color: #467599;
+    color: white;
+    width: 100%;
+    /* fixed elements are not 100% by default like other divs would be */
+    text-align: center;
+    padding: 0.5rem;
+}
+    
+#titleNav, #footer {
+        /* give a little "3D"  effect to the edges of titleNav and footer */
+    box-shadow: 0rem 0rem 1rem rgba(0,0,0);  
+}
+
+/* desktop only */
+@media only screen and (min-width: 54rem) { /* this size is tailored to size of "web site title" */
+
+    /* in desktop the titleNav is not as tall, so less top margin needed to prevent titleNav from hiding top of for content */
+    #content {
+        margin-top: 4.5rem;
+        /* color: red;  /* I added this to debug when the desktop rules kick in */
+    }
+
+    #titleNav {
+        /* flex attributes */
+        flex-direction: row;
+        justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+    }
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+#list-link {
+    color: #0b8934;
+    text-decoration: none;
+}

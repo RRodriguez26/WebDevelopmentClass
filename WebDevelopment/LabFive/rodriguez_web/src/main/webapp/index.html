@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Use this type of comment within HTML -->
+    <title>BookLister</title>
+
+    <!-- this is your internal style sheet -->
+    <style>
+        /*  You can only use the "slash star ... star slash" style comment inside a style sheet */
+
+        html,
+        body {
+            /* Prevents tiny white border inside browser window. */
+            margin: 0rem;
+            padding: 0rem;
+        }
+
+        body {
+            background-color: #7CCDC4;
+            /* red, green, blue (255 is max)
+                                                         this is the turqoise color */
+            color: black;
+            /* color of font */
+            font-family: sans-serif;
+            /* "no tail" font is more readable for small font */
+        }
+
+        #pageTitle {
+            font-size: 3rem;
+        }
+
+        #content {
+            /* Add padding top to prevent titleNav from covering up top of content. 
+                           add padding bottom to prevent bottom content from getting hidden under footer. */
+            padding: 1rem;
+            padding-top: 6rem;
+            /* prevent the top of the content from getting hidden under the fixed titleNav */
+            padding-bottom: 2rem;
+            /* prevent the the bottom of the content from getting hidden under the fixed footer */
+        }
+
+        #content img {
+            /* this selector applies to images within #content */
+            width: 40%;
+            border-radius: 0.5rem;
+            box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.6);
+            /* color is black which is 60% solid */
+        }
+
+        #footer {
+            /* footer fixed, always at the bottom left */
+            position: fixed;
+            bottom: 0rem;
+            left: 0rem;
+            z-index: 1;
+            /* make sure footer is on top of content which would have default z-index value of 0 */
+
+            background-color: #467F85;
+            color: white;
+            width: 100%;
+            /* fixed elements are not 100% by default like other divs would be */
+            text-align: center;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="content">
+
+        <h1>Database Access</h1>
+        <h3>Using Java Classes - Outputs JSON</h3>
+        <p>
+            If you would like to see my <strong>Simple Database Access API</strong> open up in a new tab,
+            click <a href="webUser/getAllSimple" target="_blank">here</a>. This API only
+            works locally, does not use many java classes and outputs content type=
+            "text/html" which is not very useful. But the code is simple and easy to
+            read.
+        </p>
+        <p>
+            If you would like to see my <strong>Reusable Database Access API</strong> open up in a new tab,
+            click <a href="webUser/getAll" target="_blank">here</a>. This code is well
+            designed and easy for the client to consume because it outputs from java objects
+            that have been converted to JSON.
+        </p>
+        <p>
+            If you would like to see my <strong>JSON Class API</strong> open up in a new tab,
+            click <a href="jsonClass" target="_blank">here</a>. If the output
+            shows up on one line, remember to download and add the JSON View
+            extension to Chrome.
+        </p>
+        <p>
+            If you would like to see my <strong>Hello World API</strong> open up in a new tab,
+            click <a href="hello" target="_blank">here</a>.
+        </p>
+        <p>
+            If you would like to see my <strong>Book API</strong> open up in a new tab,
+            click <a href="book/getAll" target="_blank">here</a>.
+        </p>
+
+    </div> <!-- content. [[Keep track of nesting]] -->
+    <div id="footer">
+        Rafael Rodriguez
+    </div>
+</body>
+
+</html>
